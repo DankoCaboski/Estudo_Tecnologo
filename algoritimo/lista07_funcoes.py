@@ -37,7 +37,10 @@ def same_first_last(nums):
 # common_end([1, 2, 3], [7, 3, 2]) -> False
 # common_end([1, 2, 3], [1, 3]) -> True
 def common_end(a, b):
-  return 
+  if a[0] == b[0] or a[-1] == b[-1]:
+    return True
+  else:
+    return False
 
 # D. maior_ponta
 # Dada uma lista não vazia, cria uma nova lista onde todos
@@ -46,14 +49,29 @@ def common_end(a, b):
 # maior_ponta([1, 2, 3]) -> [3, 3, 3]
 # maior_ponta([1, 3, 2]) -> [2, 2, 2]
 def maior_ponta(nums):
-  return
+  a = []
+  if nums[0]>=nums[-1]:
+    for i in range(0,len(nums)):
+      a.append(nums[0])
+    return a
+  else:    
+    for i in range(0, len(nums)):
+      a.append(nums[-1])
+    return a
 
 # E. sum2
 # Dada uma lista de inteiros de qualquer tamanho
 # retorna a soma dos dois primeiros elementos
 # se a lista tiver menos de dois elementos, soma o que for possível
 def sum2(nums):
-  return 
+  a = 0
+  if len(nums)>=2:
+    a = a + nums[0] + nums[1]
+    return a
+  elif len(nums) == 1:
+    return nums[0]
+  else:
+    return 0
 
 # F. middle_way
 # sejam duas listas de inteiros a e b
