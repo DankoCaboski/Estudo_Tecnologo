@@ -81,7 +81,10 @@ def sum2(nums):
 # middle_way([7, 7, 7], [3, 8, 0]) -> [7, 8]
 # middle_way([5, 2, 9], [1, 4, 5]) -> [2, 4]
 def middle_way(a, b):
-  return 
+  c = []
+  c.append(a[int((len(a)-1)/2)])
+  c.append(b[int((len(b)-1)/2)])
+  return c
 
 # G. date_fashion
 # você e sua namorada(o) vão a um restaurante
@@ -98,7 +101,12 @@ def middle_way(a, b):
 # date_fashion(5, 2) -> 0
 # date_fashion(5, 5) -> 1
 def date_fashion(eu, par):
-  return
+  if eu <= 2 or par <=2:
+    return 0
+  elif eu >=8 or par >=8:
+    return 2
+  else:
+    return 1
 
 # H. squirrel_play
 # os esquilos na FATEC brincam quando a temperatura está entre 60 e 90
@@ -109,7 +117,16 @@ def date_fashion(eu, par):
 # squirrel_play(95, False) -> False
 # squirrel_play(95, True) -> True
 def squirrel_play(temp, is_summer):
-  return
+  if is_summer:
+    if temp>= 60 and temp<=100:
+      return True
+    else:
+      return False
+  else:
+    if temp>= 60 and temp<=90:
+      return True
+    else:
+      return False
 
 # I. pego_correndo
 # você foi pego correndo
@@ -125,7 +142,22 @@ def squirrel_play(temp, is_summer):
 # pego_correndo(65, False) -> 1
 # pego_correndo(65, True) -> 0 
 def pego_correndo(speed, is_birthday):
-  return
+  a = 0
+  if is_birthday:
+    a = 5
+    if speed <= 60+a:
+      return 0
+    elif speed <=80+a:
+      return 1
+    else:
+      return 2
+  else:
+    if speed <= 60+a:
+      return 0
+    elif speed <=80+a:
+      return 1
+    else:
+      return 2
   
 # J. alarm_clock
 # day: 0=domingo, 1=segunda, 2=terça, ..., 6=sábado
@@ -140,7 +172,17 @@ def pego_correndo(speed, is_birthday):
 # alarm_clock(5, False) -> '7:00'
 # alarm_clock(0, False) -> '10:00'
 def alarm_clock(day, vacation):
-  return
+  clk =['7:00','10:00','off']
+  if not vacation:
+    if day != 0 and day != 6:
+      return clk[0]
+    else:
+      return clk[1]
+  else:
+    if day != 0 and day != 6:
+      return clk[1]
+    else:
+      return clk[2]
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
