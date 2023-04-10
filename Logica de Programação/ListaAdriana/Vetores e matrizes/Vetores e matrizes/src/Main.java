@@ -13,7 +13,7 @@ public class Main {
         switch (ex) {
             case 1:
                 Ex1 ex1 = new Ex1();
-                System.out.println(ex1.recebeLista());
+                System.out.println("O maior número é: " +ex1.recebeLista());
                 break;
             case 2:
                 Ex2 ex2= new Ex2();
@@ -30,6 +30,14 @@ public class Main {
             case 5:
                 Ex5 ex5 = new Ex5();
                 System.out.println(ex5.random());
+                break;
+            case 6:
+                Ex6 ex6 = new Ex6();
+                System.out.println(ex6.maior());
+                break;
+            case 7:
+                Ex7 ex7 = new Ex7();
+                System.out.println(ex7.jogoDaVelha());
         }
     }
 }

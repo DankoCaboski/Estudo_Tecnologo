@@ -10,14 +10,18 @@ public class Ex5 {
     public String random() {
         int procurado = 0;
         for (int i = 0; i < 10; i++) {
-            array[i] = gerador.nextInt(10);
+            array[i] = gerador.nextInt(11);
         }
-        System.out.println(Arrays.toString(array));
-        System.out.println("Informe o número a ser procurado");//debug printa a matriz na tela
+        System.out.println(Arrays.toString(array));//debug printa a matriz na tela
+        System.out.println("Informe o número a ser procurado");
 
         procurado= leitor.nextInt();
-        if(Arrays.asList(array).contains(procurado)){
-            return "O index do número procurado é: "+ Arrays.asList(array).indexOf(procurado);
+        List<Integer> matriz = new LinkedList<>();
+        for (int i = 0; i < 10; i++){
+            matriz.add(array[i]);
+        }
+        if(matriz.contains(procurado)){
+            return "O index do número procurado é: "+ matriz.indexOf(procurado);
             }else{return "O número não esta na matriz aleatoria";}
         }
     }
