@@ -1,18 +1,12 @@
 public class Veiculo {
-    String tipo;
     String marca;
     String modelo;
     int ano;
 
-    public Veiculo(String tipo, String marca, String modelo, int ano){
-        this.tipo = tipo;
+    public Veiculo(String marca, String modelo, int ano) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
-    }
-
-    public String getTipo(){
-        return tipo;
     }
 
     public String getMarca(){
