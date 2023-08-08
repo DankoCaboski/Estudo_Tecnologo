@@ -1,0 +1,1 @@
+C:\Users\danko\Documents\GitHub\Estudo_Tecnologo\Logica\ de\ Programação\untitled\target\debug\untitled.exe: C:\Users\danko\Documents\GitHub\Estudo_Tecnologo\Logica\ de\ Programação\untitled\src\main.rs
