@@ -17,6 +17,8 @@ int main() {
         adicionaNovo(&cabeca,i);
     }
 
+    //freeAll(&cabeca);
+
     imprimeLista(&cabeca);
     return 0;
 }
@@ -32,10 +34,27 @@ void adicionaNovo(struct no **cabeca,int i) {
 
 void imprimeLista(struct no **cabeca) {
     struct no *atual = (*cabeca)->seg;
-    while (atual != NULL) {
+    if((*cabeca)->seg==NULL){
+        char msg[]  = "A lista esta vazia";
+        printf("%s", msg);
+    }
+    else
+    {
+        while (atual != NULL) {
         printf("%d ", atual->valor);
         atual = atual->seg;
+        }
     }
-    free(atual);
+    
     printf("\n");
+}
+
+void freeAll(struct no **cabeca) {
+    struct no *atual = (*cabeca)->seg;
+    while (atual != NULL) {
+        struct no *temp = atual;
+        atual = atual->seg;
+        free(temp);
+    }
+    (*cabeca)->seg=NULL;
 }
