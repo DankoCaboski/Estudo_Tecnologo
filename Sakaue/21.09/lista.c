@@ -4,20 +4,29 @@
 struct no {
     int valor;
     struct no *seg;
-    struct no *ultimo;
+    struct no *anterior;
 };
 
 int main() {
+
+    srand(time(NULL)); 
+    
     struct no *cabeca = (struct no *)malloc(sizeof(struct no));
     cabeca->seg = NULL;
-    cabeca->ultimo = NULL;
+    cabeca->anterior = NULL;
     cabeca->valor = 0;
 
-    for (int i = 5; i > 0; i--) {
+    for (int i = 10; i > 0; i--) {
         adicionaNovo(&cabeca,i);
     }
 
-    //freeAll(&cabeca);
+    imprimeLista(&cabeca);
+
+    for (int i = 4; i > 0; i--) {
+        adicionaRandom(&cabeca);
+    }
+
+    // freeAll(&cabeca);
 
     imprimeLista(&cabeca);
     return 0;
@@ -28,8 +37,24 @@ void adicionaNovo(struct no **cabeca,int i) {
 
     celula->valor = i;
     celula->seg = (*cabeca)->seg;
+    (*cabeca)->anterior=celula;
     (*cabeca)->seg = celula;
-    (*cabeca)->ultimo = celula->seg;
+    (*cabeca)->anterior = NULL;
+}
+
+void adicionaRandom(struct no **cabeca) {
+    struct no *posCabeca = (*cabeca);
+    struct no *celula = (struct no *)malloc(sizeof(struct no));
+    struct no **posicao = (*cabeca); 
+    
+    int comprimento = getComprimento(&posCabeca);
+    int iteracoes = 0;
+    int random = rand() % 7;
+
+    while(iteracoes<= random){
+        adicionaNovo((&posCabeca), random);
+        iteracoes++;
+    }
 }
 
 void imprimeLista(struct no **cabeca) {
@@ -57,4 +82,16 @@ void freeAll(struct no **cabeca) {
         free(temp);
     }
     (*cabeca)->seg=NULL;
+}
+
+int getComprimento(struct no **cabeca) {
+    struct no *atual = (*cabeca)->seg;
+    int comprimento = 0;
+
+    while (atual != NULL) {
+        comprimento++;
+        atual = atual->seg;
+    }
+
+    return comprimento;
 }
