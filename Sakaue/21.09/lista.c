@@ -1,97 +1,134 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-struct no {
+typedef struct celula {
     int valor;
-    struct no *seg;
-    struct no *anterior;
-};
+    struct celula *seg;
+    struct celula *anterior;
+} celula;
+
+// Protótipo da função adicionaRandom
+void adicionaRandom(celula *cabeca);
 
 int main() {
+    srand(time(NULL));
 
-    srand(time(NULL)); 
-    
-    struct no *cabeca = (struct no *)malloc(sizeof(struct no));
+    celula *cabeca = malloc(sizeof(celula));
     cabeca->seg = NULL;
     cabeca->anterior = NULL;
     cabeca->valor = 0;
 
     for (int i = 10; i > 0; i--) {
-        adicionaNovo(&cabeca,i);
+        adicionaNovo(cabeca, i);
     }
 
-    imprimeLista(&cabeca);
+    printf("Lista inicial: ");
+    imprimeLista(cabeca);
 
     for (int i = 4; i > 0; i--) {
-        adicionaRandom(&cabeca);
+        adicionaRandom(cabeca);
     }
 
-    // freeAll(&cabeca);
+    printf("Lista com duplicadas: ");
+    imprimeLista(cabeca);
 
-    imprimeLista(&cabeca);
+    removeDuplicates(cabeca);
+    printf("Lista sem duplicadas: ");
+    imprimeLista(cabeca);
+
+    freeAll(cabeca);
+
     return 0;
 }
 
-void adicionaNovo(struct no **cabeca,int i) {
-    struct no *celula = (struct no *)malloc(sizeof(struct no));
+void adicionaNovo(celula *cabeca, int i) {
+    celula *novo = malloc(sizeof(celula));
 
-    celula->valor = i;
-    celula->seg = (*cabeca)->seg;
-    (*cabeca)->anterior=celula;
-    (*cabeca)->seg = celula;
-    (*cabeca)->anterior = NULL;
+    novo->valor = i;
+    novo->seg = cabeca->seg;
+    cabeca->seg = novo;
+
+    if (novo->seg != NULL) {
+        novo->seg->anterior = novo;
+    }
+
+    novo->anterior = cabeca;
 }
 
-void adicionaRandom(struct no **cabeca) {
-    struct no *posCabeca = (*cabeca);
-    struct no *celula = (struct no *)malloc(sizeof(struct no));
-    struct no **posicao = (*cabeca); 
-    
-    int comprimento = getComprimento(&posCabeca);
-    int iteracoes = 0;
-    int random = rand() % 7;
+void adicionaRandom(celula *cabeca) {
+    int random = rand() % 9+1;
 
-    while(iteracoes<= random){
-        adicionaNovo((&posCabeca), random);
-        iteracoes++;
+    celula *posCabeca = cabeca->seg;
+    int i = 0;
+
+    while (i < random && posCabeca != NULL) {
+        posCabeca = posCabeca->seg;
+        i++;
     }
+
+    adicionaNovo(posCabeca, random);
 }
 
-void imprimeLista(struct no **cabeca) {
-    struct no *atual = (*cabeca)->seg;
-    if((*cabeca)->seg==NULL){
-        char msg[]  = "A lista esta vazia";
-        printf("%s", msg);
-    }
-    else
-    {
+void imprimeLista(celula *cabeca) {
+    celula *atual = cabeca->seg;
+
+    if (atual == NULL) {
+        printf("A lista está vazia\n");
+    } else {
         while (atual != NULL) {
-        printf("%d ", atual->valor);
-        atual = atual->seg;
+            printf("%d ", atual->valor);
+            atual = atual->seg;
         }
     }
-    
+
     printf("\n");
 }
 
-void freeAll(struct no **cabeca) {
-    struct no *atual = (*cabeca)->seg;
+void removeDuplicates(celula *cabeca) {
+    celula *atual = cabeca->seg;
+
     while (atual != NULL) {
-        struct no *temp = atual;
+        celula *controle = atual;
+
+        while (controle->seg != NULL) {
+            if (controle->seg->valor == atual->valor) {
+                celula *temp = controle->seg;
+                controle->seg = temp->seg;
+
+                if (temp->seg != NULL) {
+                    temp->seg->anterior = controle;
+                }
+
+                free(temp);
+            } else {
+                controle = controle->seg;
+            }
+        }
+
+        atual = atual->seg;
+    }
+}
+
+void freeAll(celula *cabeca) {
+    celula *atual = cabeca->seg;
+
+    while (atual != NULL) {
+        celula *temp = atual;
         atual = atual->seg;
         free(temp);
     }
-    (*cabeca)->seg=NULL;
+
+    cabeca->seg = NULL;
 }
 
-int getComprimento(struct no **cabeca) {
-    struct no *atual = (*cabeca)->seg;
-    int comprimento = 0;
+int getComprimento (celula *cabeca) {
+    int retorno = 0;
+    celula *atual = cabeca->seg;
 
     while (atual != NULL) {
-        comprimento++;
+        retorno++;
         atual = atual->seg;
     }
-
-    return comprimento;
+    return retorno;
 }
