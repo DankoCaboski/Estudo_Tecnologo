@@ -57,7 +57,7 @@ void adicionaNovo(celula *cabeca, int i) {
 }
 
 void adicionaRandom(celula *cabeca) {
-    int random = rand() % 9+1;
+    int random = rand() % 9+1; 
 
     celula *posCabeca = cabeca->seg;
     int i = 0;
