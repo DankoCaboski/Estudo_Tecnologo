@@ -49,10 +49,11 @@ celula* empilhar(celula **topo, int n, int nipe) {
         novo->posicao = 0;
     }
 
-    novo->nipe=tipo[nipe-1];
+    novo->nipe = tipo[nipe - 1];
 
     novo->inferior = *topo;
     *topo = novo; // Update the value of the pointer to the top of the stack
+        
     return novo;
 }
 
