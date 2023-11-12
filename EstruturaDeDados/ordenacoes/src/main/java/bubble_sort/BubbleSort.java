@@ -8,22 +8,14 @@ public class BubbleSort {
     
     public static void main(String[] args) {
         FuncoesBasicas funcoesBasicas = new FuncoesBasicas();
-        
-        Random random = new Random();
-        
-        int vetorSize = random.nextInt(11) + 5;
 
-        int[] vetor = new int[vetorSize];
-
-        for(int i = 1; i < vetorSize; i++){
-            vetor[i-1] = random.nextInt(11);
-        }
+        int[] vetor = funcoesBasicas.seedVetor();
 
         System.out.println("");
         System.out.println("Antes da ordenação:");
         funcoesBasicas.printArray(vetor);
 
-        bubbleSort(vetor, vetorSize);
+        bubbleSort(vetor, vetor.length);
 
         System.out.println("");
         System.out.println("Depois da ordenação:");
