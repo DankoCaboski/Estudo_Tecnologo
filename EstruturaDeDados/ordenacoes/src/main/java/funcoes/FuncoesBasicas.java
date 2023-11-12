@@ -4,7 +4,14 @@ import java.util.Random;
 
 public class FuncoesBasicas {
     
-    public void printArray(int[] vetor){
+    public void printArray(int[] vetor, boolean sorted){
+        if(sorted){
+            System.out.println("");
+            System.out.println("Depois da ordenação:");
+        }else{
+            System.out.println("");
+            System.out.println("Antes da ordenação:");
+        }
         for (int i : vetor) {
             System.out.println(i);
         }

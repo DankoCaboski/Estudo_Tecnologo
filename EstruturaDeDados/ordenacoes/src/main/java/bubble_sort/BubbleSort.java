@@ -11,16 +11,11 @@ public class BubbleSort {
 
         int[] vetor = funcoesBasicas.seedVetor();
 
-        System.out.println("");
-        System.out.println("Antes da ordenação:");
-        funcoesBasicas.printArray(vetor);
+        funcoesBasicas.printArray(vetor, false);
 
         bubbleSort(vetor, vetor.length);
 
-        System.out.println("");
-        System.out.println("Depois da ordenação:");
-
-        funcoesBasicas.printArray(vetor);
+        funcoesBasicas.printArray(vetor, true);
     }
 
     private static int[] bubbleSort(int[] vetor, int vetorSize) {
