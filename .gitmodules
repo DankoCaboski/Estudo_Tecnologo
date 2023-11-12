@@ -1,0 +1,3 @@
+[submodule "ordenacoes"]
+	path = ordenacoes
+	url = https://github.com/DankoCaboski/ordenacoes
