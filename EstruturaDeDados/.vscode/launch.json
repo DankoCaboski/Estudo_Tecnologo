@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BubbleSort",
+            "request": "launch",
+            "mainClass": "bubble_sort.BubbleSort",
+            "projectName": "org.example-untitled"
+        },
+        {
+            "type": "java",
+            "name": "BubbleSort",
+            "request": "launch",
+            "mainClass": "untitled.src.main.java.bubble_sort.BubbleSort",
+            "projectName": "Sakaue_c38b86ae"
+        },
+        {
+            "type": "java",
+            "name": "BubbleSort",
+            "request": "launch",
+            "mainClass": "ordenacoes.untitled.src.main.java.bubble_sort.BubbleSort",
+            "projectName": "Sakaue_c38b86ae"
+        },
+        {
+            "type": "java",
+            "name": "Player",
+            "request": "launch",
+            "mainClass": "Player",
+            "projectName": "untitled"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "player",
+            "request": "launch",
+            "mainClass": "pilha.player.player",
+            "projectName": "Sakaue_c38b86ae"
+        }
+    ]
+}
