@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ShellSort",
+            "request": "launch",
+            "mainClass": "shell_sort.ShellSort",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "BubbleSort",
             "request": "launch",
             "mainClass": "bubble_sort.BubbleSort",

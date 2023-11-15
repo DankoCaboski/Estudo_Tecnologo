@@ -20,7 +20,7 @@ public class FuncoesBasicas {
     public int[] seedVetor(){
         Random random = new Random();
         
-        int vetorSize = random.nextInt(10) + 5;
+        int vetorSize = random.nextInt(11) + 5;
 
         int[] vetor = new int[vetorSize];
 

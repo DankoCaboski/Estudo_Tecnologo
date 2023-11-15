@@ -17,24 +17,23 @@ public class ShellSort {
         funcoesBasicas.printArray(vetor, true);
     }
 
-    private static int[] shellSort(int[] vetor, int vetorSize) {
+    private static void shellSort(int[] vetor, int vetorSize) {
         int h = setH(vetorSize);
         
-        while(h >= 1){
-            for (int i = 0; i < vetorSize; i++) {
-                int aux;
-                if(i+h>vetorSize-1){
-                    break;
-                }
-                if(vetor[i]>vetor[i+h]){
-                    aux = vetor[i];
-                    vetor[i] = vetor[i+h];
-                    vetor[i+h] = aux;
-                } 
+        for (int i = 0; i < vetorSize; i++) {
+            int aux;
+            if(i+h>vetorSize-1){
+                break;
             }
+            if(vetor[i]>vetor[i+h]){
+                aux = vetor[i];
+                vetor[i] = vetor[i+h];
+                vetor[i+h] = aux;
+            } 
             h = setH(h);
         }
-        return vetor;
+        
+        
     }
 
     private static int setH(int h){
