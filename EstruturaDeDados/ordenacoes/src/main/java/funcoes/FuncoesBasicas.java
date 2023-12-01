@@ -20,12 +20,12 @@ public class FuncoesBasicas {
     public int[] seedVetor(){
         Random random = new Random();
         
-        int vetorSize = random.nextInt(10) + 5;
+        int vetorSize = random.nextInt(50) + 15;
 
         int[] vetor = new int[vetorSize];
 
         for(int i = 1; i < vetorSize; i++){
-            vetor[i-1] = random.nextInt(11);
+            vetor[i-1] = random.nextInt(vetorSize+1);
         }
         return vetor;
     }
