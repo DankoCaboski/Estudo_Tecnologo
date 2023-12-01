@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "listaSCabeca",
+            "request": "launch",
+            "mainClass": "main.java.funcoes.listaSCabeca",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "carta",
             "request": "launch",
             "mainClass": "carta",
