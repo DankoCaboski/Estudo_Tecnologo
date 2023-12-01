@@ -10,12 +10,12 @@ public class SelectSort {
 
         funcoesBasicas.printArray(vetor, false);
 
-        pickSort(vetor, vetor.length);
+        SelectSort(vetor, vetor.length);
 
         funcoesBasicas.printArray(vetor, true);
     }
 
-    private static void pickSort(int[] vetor, int vetorSize){
+    private static void SelectSort(int[] vetor, int vetorSize){
 
         for (int i = 0; i < vetorSize; i++) {
             for (int ii = 0; ii < vetorSize; ii++) {
