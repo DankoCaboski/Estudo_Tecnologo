@@ -2,16 +2,16 @@ package arvore_binaria;
 
 public class ArvoreBinaria {
 
-    private static No primeiroNo = new No(5);
+    private static No raiz = new No(5);
     public static void main(String[] args) {
 
-        primeiroNo.direita = new No(4);
+        raiz.direita = new No(4);
     
-        insere(primeiroNo, 3);
+        insere(raiz, 3);
 
-        insere(primeiroNo, 2);
+        insere(raiz, 2);
 
-        printArvore(primeiroNo);
+        printArvore(raiz);
 
     }
 
@@ -39,7 +39,7 @@ public class ArvoreBinaria {
             if(no.direita != null){
                 printArvore(no.direita);
             }
-            System.out.println(no.direita.valor);
+            // System.out.println(no.direita.valor);
             return;
         }
         if(no.esquerda == null){
@@ -49,10 +49,10 @@ public class ArvoreBinaria {
     }
 
     private static void printDireita(No no){
-        System.out.println(primeiroNo.direita.valor);
+        System.out.println(raiz.direita.valor);
     }
 
     private static void printEsquerda(No no){
-        System.out.println(primeiroNo.esquerda.valor);
+        System.out.println(raiz.esquerda.valor);
     }
 }

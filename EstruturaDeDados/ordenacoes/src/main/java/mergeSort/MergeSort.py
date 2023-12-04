@@ -17,10 +17,7 @@ def mergeSort(a):
 
     meio = len(a) // 2
 
-    left = mergeSort(a[:meio])
-    right = mergeSort(a[meio:])
-
-    return merge(left, right)
+    return merge(mergeSort(a[:meio]), mergeSort(a[meio:]))
 
 def merge(left, right):
     result = []

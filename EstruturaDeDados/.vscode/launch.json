@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ArvoreBinaria",
+            "request": "launch",
+            "mainClass": "arvore_binaria.ArvoreBinaria",
+            "projectName": "org.example-untitled"
+        },
+        {
+            "type": "java",
             "name": "listaSCabeca",
             "request": "launch",
             "mainClass": "main.java.funcoes.listaSCabeca",
